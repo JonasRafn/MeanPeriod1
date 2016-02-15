@@ -1,0 +1,28 @@
+What is node.js?
+
+Node.js is a command line tool that provides a JS API to access networking and file system.
+It runs on the V8 JS engine developed by Google and used Chrome. It is one of the fastest interpreters,
+for a dynamic language on the market right now, and developers keep pushing for more speed.
+In Node.js everything runs in parallel except for your code, and Node.js heavily relies on callbacks,
+as part of most basic network or filesystem functions.
+Example:
+var fs = require('fs');
+
+fs.readFile('treasure-chamber-report.txt', function(report) {
+  Console.log("oh, look at all my money: "+report);
+});
+
+fs.writeFile('letter-to-princess.txt', '...', function() {
+  Console.log("can't wait to hear back from her!");
+});
+First the code reads a file and the it writes a file, these two task runs in parallel, and when Node.js finishes
+the task it fires the callback function, but only one callback function can run at a time.
+
+What is NPM?
+
+NPM stand for "Node Package Manager", and is simply a manager for libraries in JS, there are two types of libraries
+in NPM, "Package", and "Module". A module is loaded using Node.js require(), and is simply another JS file, with
+functions that are reusable in multiple programs.
+It is widely used, it is even used in the example above, "fs" is and external library used for accessing the filesystem.
+readFile() reads a file from the file system and outputs it in the callback function to further use.
+writeFile() writes a file to the file system and fires the callback function when done.
